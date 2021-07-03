@@ -1,32 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="http://fonts.cdnfonts.com/css/dm-sans" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
 </head>
-<body>
-    <div class="todo-container">
-        <h1>Todo List</h1>
-        <h3>Welcome to my todo list.</h3>
-        <ul class="todo-items">
 
+<body>
+    <nav>
+        <ul>
+            <li class="menu">
+                <i data-feather="align-left"></i>
+            </li>
+        </ul>
+    </nav>
+    <nav class="sidebar">
+        <ul class="exit">
+            <li><i data-feather="x-circle"></i></li>
+        </ul>
+        <ul class="item-type button-ul">
+            <button>MD</button>
+        </ul>
+        <ul class="item-type button-ul">
+            <li>marydaniels@gmail.com</li>
+        </ul>
+        <ul class="item-type header-ul">
+            <li>
+                <h1>To do List</h1>
+            </li>
+        </ul>
+        <ul class="item-type">
+            <section>
+                <h2>Tasks</h2>
+                <button class="task-number">4</button>
+            </section>
+        </ul>
+        <ol class="item-type">
+        </ol>
+        <ul class="item-type logout">
+            <li>
+                <section><i data-feather="log-out"></i></section>
+                <p>Log Out</p>
+            </li>
+        </ul>
+    </nav>
+    <div class="todo-container">
+        <h1>To do List</h1>
+        <h3>Welcome to my to do list.</h3>
+        <ul class="todo-items">
         </ul>
     </div>
     <div class="add-task">
         <section>
             <section class="add-task">
-                <button class="add">Add Task</button>
+                <button class="add"><i data-feather="edit-2"></i></button>
             </section>
-            <form >
-                <input type="text"  class="add-task" placeholder="Type your task : "><br>
-                <button type="submit">Add</button><br>
-            </form>
+        </section>
+    </div>
+    <div class="add-task-modal">
+        <section class="close">
+            <i data-feather="x-circle"></i>
+        </section>
+        <form>
+            <label for="text">Name of text : </label><br>
+            <input type="text" class="add-task" placeholder="Enter your task : "><br>
+            <label for="time">Time to be completed : </label><br>
+            <input type="time" class="time"><br>
+            <button class="set-reminder">
+                <p>Set Reminder</p>
+                <section>
+                    <i data-feather="bell"></i>
+                </section>
+            </button><br>
+            <button type="submit" class="add">
+               <p>Add Task</p>
+               <section>
+                   <i data-feather="check-circle"></i>
+               </section>
+            </button><br>
+        </form>
+        <section class="enter-input">
+            <p>Please enter a task</p>
         </section>
     </div>
 
+    <script src="js/feather.js"></script>
     <script src="js/index.js"></script>
 </body>
+
 </html>

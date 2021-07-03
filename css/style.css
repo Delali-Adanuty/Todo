@@ -1,112 +1,614 @@
-*{
-    font-family: 'dm sans';
-    margin:0;
-    padding:0;
+@import url('http://fonts.cdnfonts.com/css/dm-sans');
+@import url('http://fonts.cdnfonts.com/css/google-sans');
+* {
+    font-family: 'dm sans', 'google sans', 'calibri';
+    margin: 0;
+    padding: 0;
 }
 
-div.todo-container{
+:root {
+    --theme-color: orange;
+}
+
+nav ul li.menu {
+    position: absolute;
+    color: orange;
+    margin: 1rem 1rem;
+    list-style-type: none;
+}
+
+nav.sidebar {
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    animation: slide 0.47s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    background-color: white;
+    box-shadow: 0.9rem 0.9rem 1.86rem rgba(0, 0, 0, 0.118);
+}
+
+nav.sidebar ul.exit {
+    float: right;
+    margin: 0.5rem;
+}
+
+nav.sidebar ul.item-type,
+nav.sidebar ol.item-type {
+    padding: 0.3rem 0.94rem;
+}
+
+nav.sidebar ul.item-type:first-of-type {
+    border-bottom: none;
+    margin-top: 2rem;
+}
+
+nav.sidebar ul.item-type h1 {
+    font-size: 1.7rem;
+}
+
+nav.sidebar ul.button-ul button {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    background-color: turquoise;
+    border: none;
+    color: white;
+    margin-top: 2rem;
+}
+
+nav.sidebar ul.button-ul {
+    display: grid;
+    justify-content: center;
+    border: none;
+}
+
+nav.sidebar ul li,
+nav.siebar ol li {
+    list-style-type: none;
+}
+
+nav.sidebar ul.header-ul {
+    display: grid;
+    justify-content: center;
+    margin: 2rem 0rem;
+    border: 1px solid rgb(70, 64, 64);
+    padding: 0.65rem;
+    border-right: none;
+    border-left: none;
+}
+
+nav.sidebar ul.header-ul li h1 {
+    font-size: 2.2rem;
+    color: var(--theme-color)
+}
+
+nav.sidebar ul.item-type section {
+    display: flex;
+    margin: 1rem 0rem;
+}
+
+nav.sidebar ul.item-type section h2 {
+    width: 14rem;
+    color: var(--theme-color);
+}
+
+nav.sidebar ul.item-type section button {
+    font-size: 1.2rem;
+    font-weight: 600;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: rgb(67, 233, 142);
+    border: none;
+    outline: none;
+}
+
+nav.sidebar ol.item-type li {
+    font-size: 1.23rem;
+    margin: 0.43rem 1rem;
+}
+
+nav.sidebar ul.logout li {
+    display: flex;
+    border: 1px solid rgb(94, 51, 31);
+    align-items: center;
+    margin-top: 1rem;
+    border-right: none;
+    border-left: none;
+    color: var(--theme-color);
+}
+
+nav.sidebar ul.logout li p {
+    font-size: 1.23rem;
+    margin: 0.34rem 1rem;
+}
+
+div.todo-container {
     display: grid;
     justify-content: center;
 }
 
-div.todo-container h1{
+div.todo-container h1 {
     font-size: 2.3rem;
     text-align: center;
-    margin:5rem 0rem;
+    margin: 5rem 0rem;
     margin-bottom: 3rem;
-    color:orange;
+    color: var(--theme-color);
 }
 
-div.todo-container h3{
-    color:orange;
-    font-size:1.78rem;
+div.todo-container h3 {
+    color: var(--theme-color);
+    font-size: 1.78rem;
     text-align: center;
     margin-bottom: 3rem;
 }
 
-div.todo-container ul.todo-items li{
+div.todo-container ul.todo-items {
+    border-radius: 1rem;
+    box-shadow: 0.12rem 0.12rem 0.86rem rgba(102, 98, 98, 0.12);
+    max-width: 100vw;
+    margin-bottom: 5rem;
+    transition: 0.72s cubic-bezier(0.215, 0.610, 0.355, 1) box-shadow;
+}
+
+div.todo-container ul.todo-items:hover {
+    box-shadow: 0.63rem 0.63rem 1.8rem rgba(102, 98, 98, 0.12);
+}
+
+div.todo-container ul.todo-items li {
     list-style-type: none;
+    padding: 1.24rem 1.25rem;
+    transition: 1.3s linear all;
+    max-width: 33rem;
+    border: 1px solid rgb(190, 183, 183);
+    border-bottom: none;
+}
+
+div.todo-container ul.todo-items li:first-of-type {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+div.todo-container ul.todo-items li:last-of-type {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border-bottom: 1px solid rgb(190, 183, 183)
+}
+
+div.todo-container ul.todo-items li section {
     display: flex;
-    margin:1.4rem 0rem;
-    padding:1.24rem 1.25rem;
-    box-shadow: 0.09rem 0.09rem 0.6rem rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    transition: 0.73s cubic-bezier(0.075, 0.82, 0.165, 1) box-shadow;
 }
 
-div.todo-container ul.todo-items li:hover{
-    box-shadow:  0.19rem 0.19rem 1.2rem rgba(0, 0, 0, 0.2);
+
+/*
+
+div.todo-container ul.todo-items li:hover {
+    box-shadow: 0.19rem 0.19rem 1.2rem rgba(0, 0, 0, 0.2);
 }
 
-div.todo-container ul.todo-items li p{
-    font-size:1.23rem;
-    width:28rem;
+*/
+
+div.todo-container ul.todo-items li p {
+    font-size: 1.23rem;
+    width: 32rem;
 }
 
-div.todo-container ul.todo-items li input[type = "checkbox"]{
+div.todo-container ul.todo-items li input[type="checkbox"] {
     transform: scale(1.75);
     border-radius: 50%;
     margin: 0.34rem;
-    margin-left:5rem;   
+    margin-left: 5rem;
 }
 
-div.add-task{
-    display: grid;
-    justify-content: center;
-    position: absolute;
-    min-width: 99.8vw;
-    max-width: 100vw;
-    top:80%;
+div.todo-container ul.todo-items li input[type="checkbox"]:checked {
+    background-color: var(--theme-color);
 }
 
-div.add-task section.add-task{
-    display: grid;
-    justify-content: center;
+div.todo-container ul.todo-items li div {
+    display: flex;
 }
 
-div.add-task button.add, div.add-task button[type = "submit"]{
-    border:none;
+div.todo-container ul.todo-items li div button {
+    border: none;
     outline: none;
-    background:orange;
-    padding: 0.7rem 1.35rem;
-    font-size:1.13rem;
+    background-color: var(--theme-color);
+    padding: 0.87rem 1rem;
+    font-size: 1.05rem;
     border-radius: 3px;
 }
 
-div.add-task input{
+div.todo-container ul.todo-items li div p {
+    margin-left: 24rem;
+    margin-top: 0.5rem;
+}
+
+div.add-task {
+    display: grid;
+    justify-content: end;
+    position: fixed;
+    min-width: 97.8vw;
+    max-width: 100vw;
+    top: 90%;
+}
+
+div.add-task section.add-task {
+    display: grid;
+    justify-content: center;
+}
+
+div.add-task button.add {
+    border-radius: 50% !important;
+    height: 3.4rem;
+    width: 3.4rem;
+    border: none;
+    outline: none;
+    background-color: var(--theme-color);
+    box-shadow: 0.24rem 0.58rem 0.91rem rgba(0, 0, 0, 0.2);
+}
+
+div.add-task-modal button[type="submit"].add {
+    display: flex;
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.108);
+    overflow: hidden;
+    padding: 0;
+    background-color: var(--theme-color);
+    border-radius: 3px;
+}
+
+div.add-task-modal button[type="submit"].add p {
+    font-size: 1.17rem;
+    padding: 0.87rem 1.2rem;
+}
+
+div.add-task-modal button[type="submit"].add section {
+    background-color: rgba(0, 0, 0, 0.118);
+    height: inherit;
+    padding: 0.85rem 0.87rem;
+}
+
+div.add-task-modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    display: grid;
+    justify-content: center;
+    display: none;
+    animation: fade 0.57s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+div.add-task-modal form {
+    margin-top: 10rem;
+    animation: slideDown 0.57s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+div.add-task-modal label {
+    font-size: 1.23rem;
+}
+
+div.add-task-modal input {
     background-color: rgba(0, 0, 0, 0);
-    outline:none;
-    border: 1px solid orange;
+    outline: none;
+    border: 1px solid var(--theme-color);
     width: 30rem;
-    margin-top:2rem;
+    margin-top: 1.2rem;
+    margin-bottom: 3rem;
     font-size: 1.3rem;
-    padding:0.47rem 0.7rem;
+    padding: 0.47rem 0.7rem;
     border-radius: 3px;
-    display: none;
+    color: black;
 }
 
-div.add-task button[type = "submit"]{
+div.add-task-modal button.set-reminder {
+    border: none;
+    outline: none;
+    display: flex;
+    background-color: var(--theme-color);
+    border-radius: 3px;
+    overflow: hidden;
+    transition: 0.45s cubic-bezier(0.68, -0.55, 0.265, 1.55) background;
+}
+
+div.add-task-modal button[type='disabled'].set-reminder {
+    background-color: rgb(179, 164, 164);
+}
+
+div.add-task-modal button.set-reminder p {
+    font-size: 1.13rem;
+    padding: 0.87rem 1rem;
+}
+
+div.add-task-modal button.set-reminder section {
+    padding: 0.68rem 0.6rem;
+    background-color: rgba(0, 0, 0, 0.108);
+}
+
+div.add-task-modal input.time {
+    width: 15rem;
+}
+
+div.add-task-modal button[type="submit"] {
     padding: 0.57rem 1.35rem;
-    margin-top:1.2rem;
+    margin-top: 1.2rem;
+}
+
+div.add-task-modal section.enter-input {
+    padding: 0rem 0rem;
+    position: fixed;
+    top: 4rem;
+    width: 100vw;
+    display: grid;
+    justify-content: center;
     display: none;
 }
 
+div.add-task-modal section.enter-input p {
+    box-shadow: 0.09rem 0.09rem 0.6rem rgba(0, 0, 0, 0.2);
+    font-size: 1.24rem;
+    padding: 0.95rem 1.87rem;
+    border-radius: 4px;
+    border-bottom: 2px solid rgb(255, 115, 0);
+    color: rgb(255, 115, 0);
+}
 
-@media (prefers-color-scheme:dark){
-    body{
+div.add-task-modal section.close {
+    position: fixed;
+    left: 95vw;
+    transform: scale(1.5);
+    top: 1rem;
+}
+
+div.sign-up {
+    display: grid;
+    justify-content: center;
+}
+
+div.sign-up form.form2{
+    margin-top: 7rem;
+}
+
+form ul.other-info li a:hover{
+    text-decoration: underline;
+}
+
+
+form.form2 input{
+    height: 5vh;
+    margin:3.5vh 0vw;
+}
+
+form.form2 input[type="password"]{
+    padding-right: 3vw;
+    width:32.4vw;
+}
+
+form.form2 ul.password-icons{
+    position:absolute;
+    margin-top:-9.1vh;
+    margin-left:33.2vw;
+    max-height: 5vh;
+}
+
+form.form2 ul.password-icons li{
+    list-style-type:none;
+    padding:0.13rem 0.3rem;
+    background-color: white;
+    margin:0.3rem 0rem;
+}
+
+form .heading{
+    margin:4vh 0vw;
+    font-weight:450;
+    text-align: center;
+}
+
+label{
+    font-size:1.06rem;
+}
+
+form.form2 input{
+    width:35vw;
+    height:4.5vh;
+    font-size:1.123rem;
+    padding:0.3vh 0.4vw;
+    outline:none;
+    border:2px solid var(--theme-color);
+    border-radius: 4px;
+    margin-top:0.52vh;
+    margin-bottom:3.85vh;
+    transition:0.43s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+form.form2 input:focus{
+    border:2px solid rgb(231, 163, 37);
+}
+
+form.form2 button[type = "submit"]{
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size:1.2rem;
+    padding:1.4vh 2.38vw;
+}
+
+form ul.other-info{
+    margin:2vh 0vw;
+    display:flex;
+}
+
+form ul.other-info li{
+    list-style-type:none;
+    font-size:1.08rem;
+}
+
+form ul.other-info li.forgot-password{
+    width:27vw;
+}
+
+form ul.other-info li a{
+    text-decoration: none;
+    color:black;
+    transition: 0.34s cubic-bezier(0.215, 0.610, 0.355, 1) text-transform;
+}
+
+form.form2 button[type = "submit"]{
+    border:none;
+    outline:none;
+    padding: 1.7vh 3.2vw;
+    color:white;
+    background-color:var(--theme-color);
+    font-weight: 500;
+    font-size:1.15rem;
+    text-transform:uppercase;
+    border-radius: 3px;
+}
+
+@media (prefers-color-scheme:dark) {
+    body {
         background-color: #202020;
-        color:white;
+        color: white;
     }
-
-    div.todo-container ul.todo-items li{
-        box-shadow: 0.09rem 0.09rem 0.6rem rgba(231, 208, 208, 0.2);
+    nav.sidebar {
+        box-shadow: 0.38rem 0.38rem 0.83rem rgba(240, 234, 234, 0.12);
+        color: orange;
+        background-color: #202020;
     }
-
-    div.todo-container ul.todo-items li:hover{
-        box-shadow: 0.19rem 0.19rem 1.2rem  rgba(231, 208, 208, 0.2);
+    div.add-task-modal input {
+        color: var(--theme-color);
     }
+    div.add-task-modal {
+        background-color: #202020;
+    }
+    div.add-task-modal label {
+        color: var(--theme-color)
+    }
+    div.add-task-modal section.close {
+        color: var(--theme-color)
+    }
+    div.todo-container ul.todo-items {
+        box-shadow: 0.12rem 0.12rem 0.86rem rgba(240, 234, 234, 0.12);
+    }
+    div.todo-container ul.todo-items:hover {
+        box-shadow: 0.63rem 0.63rem 1.8rem rgba(240, 234, 234, 0.12);
+    }
+    form.form2 input{
+        height: 5vh;
+        margin:3.5vh 0vw;
+        background-color:#202020;
+        color:var(--theme-color);
+    }
+    form.form2 ul.password-icons li{
+        background-color: #202020;
+        color:var(--theme-color);
+    }
+    form ul.other-info li a{
+        color:var(--theme-color);
+    }
+    form .heading{
+        color:var(--theme-color);
+    }
+}
 
-    div.add-task input{
-        color:white;
+@media screen and (min-device-width:280px) and (max-device-width:480px) {
+    nav.sidebar {
+        width: 100vw;
+        z-index: 1;
+        width: 100vw;
+        height: 100vh;
+        background-color: #202020;
+    }
+    nav.sidebar ul.item-type section h2 {
+        width: 95vw;
+    }
+    div.todo-container ul {
+        margin-left: 2rem !important;
+        max-width: 18rem;
+    }
+    div.todo-container ul.todo-items li {
+        max-width: 18rem;
+        padding: 0.94rem 0.85rem;
+    }
+    div.todo-container ul.todo-items li div p {
+        margin-left: 3rem;
+    }
+    div.add-task-modal form input {
+        width: 17rem;
+        max-width: 80vw;
+    }
+    div.add-task-modal section.close {
+        left: 90vw;
+    }
+    div.add-task-modal {
+        overflow-y: scroll;
+    }
+    div.sign-up{
+        max-width:99vw;
+        overflow-x: hidden;
+    }
+    form.form2{
+        display: grid;
+        margin:0rem 3rem !important;
+    }
+    form.form2 input{
+        width:90vw;
+        margin:1.2rem 1rem;
+        height:2.5rem;
+        font-size:1.5rem;
+        padding:0.13rem 0.3rem;
+    }
+    form.form2 input[type = "password"], form.form2 input[type = "email"], form.form2 input[type = "text"]{
+        width:90vw;
+        margin:1.2rem 1rem;
+    }
+    form.form2 input::placeholder{
+        color:rgb(255, 233, 194);
+        opacity:0.5;
+    }
+    form.form2 button[type = "submit"]{
+        min-width:90vw;
+        margin:1.2rem 1rem;
+        min-height: 2.5rem;
+    }
+    form.form2 ul.password-icons{
+        position: relative;
+        background-color:rgba(0, 0, 0, 0);
+        max-width:2rem;
+    }
+    form.form2 ul.password-icons li{
+        position:absolute;
+        margin-top:-1rem;
+        margin-left:53vw;
+        background-color:rgba(0, 0, 0, 0);
+    }
+    form ul.other-info {
+        margin-left:1.3rem;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0.14;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-10rem);
+    }
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(0.1);
+    }
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-10rem);
     }
 }
